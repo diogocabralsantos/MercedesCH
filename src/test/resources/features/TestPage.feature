@@ -5,7 +5,7 @@ Scenario: Filter cars and submit invalid contact details
     And I fill in the location details with:
       | State       | New South Wales |
       | Postal Code | 2007            |
-      #| Purpose     | Private         |
+      | Purpose     | Private         |
   When I click the filter button
   And I apply the following filters under "Pre-Owned"
     | Colour  |
