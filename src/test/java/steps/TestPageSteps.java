@@ -8,10 +8,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.DriverManager;
+
+import java.time.Duration;
 
 
 public class TestPageSteps  {
@@ -30,14 +34,43 @@ public class TestPageSteps  {
 
     }
 
-    @And("I fill in the location details")
-    public void fillInTheLocationDetails() {
-        WebElement location = driver.findElement(By.xpath("/html/body/div/div[1]/header/div/div[4]/div[1]/div/div[1]/div/wb-select-control/wb-select/select"));
+    @And("I fill in the location details with:")
+    public void fillInTheLocationDetails(io.cucumber.datatable.DataTable dataTable) throws InterruptedException {
 
+        // Extrair os dados da tabela
+        String state = dataTable.cell(0, 1);
+        String postalCode = dataTable.cell(1, 1);
+        //String purpose = dataTable.cell(2, 1);
 
-        Select objSelect = new Select(location);
+        WebElement location = driver.findElement(By.xpath("//label[contains(text(), '* Your state')]/following::select[1]"));
+
+        Select stateDropdown = new Select(location);
         Assert.assertTrue(location.isDisplayed());
-        objSelect.selectByVisibleText("New South Wales");
-        System.out.println("PRINTIIIIIIIIIIIIIIIIIIII:" + objSelect.getOptions());
+        stateDropdown.selectByVisibleText("New South Wales");
+
+        Thread.sleep(3000);
+        // Preencher o código postal
+        WebElement postalCodeField = driver.findElement(By.xpath("//*[@aria-labelledby='postal-code-hint']"));
+
+        postalCodeField.click();
+        Thread.sleep(2000);
+        postalCodeField.sendKeys(postalCode);
+
+        Thread.sleep(3000);
+        // Preencher o propósito
+        WebElement purposeRadioBtn = driver.findElement(By.xpath("//input[@name='registration-type' and @value='P']/following-sibling::div"));
+        purposeRadioBtn.click();
+
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement continueBtn = driver.findElement(By.cssSelector("[data-test-id='state-selected-modal__close']"));
+        wait.until(ExpectedConditions.elementToBeClickable(continueBtn));
+        //wait.until(driver -> driver.findElement(By.cssSelector("[data-test-id='state-selected-modal__close']")).getAttribute("disabled") == null);
+
+        continueBtn.click();
     }
+
+
+
+
 }
