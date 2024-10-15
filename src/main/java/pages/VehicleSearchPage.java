@@ -7,13 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import pages.base.BasePage;
+import pages.popups.PrivacyPolicyPopup;
 import utils.DriverManager;
-
 import java.util.Objects;
 
 public class VehicleSearchPage extends BasePage {
-    WebDriver driver;
-
     @FindBy(xpath = "//label[contains(text(), '* Your state')]/following::select[1]")
     private WebElement locationDropdown;
 
@@ -32,10 +30,17 @@ public class VehicleSearchPage extends BasePage {
     @FindBy(css = ".filter-toggle")
     private WebElement filterBtn;
 
+    @FindBy(xpath = "//button[span[contains(text(), 'Pre-Owned')]]")
+    private WebElement preOwnedBtn;
+
+    private final PrivacyPolicyPopup privacyPolicyPopup;
 
     public VehicleSearchPage() {
-        this.driver = DriverManager.getDriver();
-        PageFactory.initElements(driver, this);
+        privacyPolicyPopup = new PrivacyPolicyPopup();
+    }
+
+    public void clickAcceptPrivacyPolicy() {
+        privacyPolicyPopup.AcceptPrivacyPolicyPopup();
     }
 
     // Method for selectState
@@ -63,6 +68,9 @@ public class VehicleSearchPage extends BasePage {
     }
     public void clickFilterBtn() {
         filterBtn.click();
+    }
+    public void clickPreOwnedBtn() {
+        preOwnedBtn.click();
     }
 
 }

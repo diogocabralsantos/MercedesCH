@@ -1,5 +1,8 @@
+pages\PreOwnedCarSearchResultsPage.class
+pages\VehicleSearchPage.class
+utils\DataTableHelper.class
+pages\VehicleDetailsPage.class
 utils\LogHelper.class
 pages\base\BasePage.class
-pages\VehicleSearchPage.class
 pages\popups\PrivacyPolicyPopup.class
 utils\DriverManager.class
