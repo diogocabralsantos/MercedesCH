@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 import pages.base.BasePage;
 import utils.ConfigReader;
 import utils.IOFileHelper;
@@ -119,6 +120,7 @@ public class VehicleDetailsPage extends BasePage {
         LogHelper.logInfo(this.getClass(), "Waiting for email error message in Shadow DOM...");
         WebElement emailErrorMessage = findNestedShadowDom(HOST1_SELECTOR, emailErrorMsgSelector);
         waitHelper.waitForElementToBeVisible(emailErrorMessage);
+        Assert.assertEquals(emailErrorMessage.getText(), "Please enter a valid email address.");
         if (emailErrorMessage.isDisplayed()) {
             LogHelper.logInfo(this.getClass(), "Error Message displayed: " + emailErrorMessage.getText());
         }
