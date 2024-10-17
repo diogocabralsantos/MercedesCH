@@ -1,47 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-10-14T11:21:32 WEST" name="Suite" finished-at="2024-10-14T11:21:44 WEST" duration-ms="11850">
+  <suite started-at="2024-10-17T03:34:04 WEST" name="ParallelTests" finished-at="2024-10-17T03:34:37 WEST" duration-ms="33125">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberTestRunner@574b560f]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberTestRunner@f316aeb]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2024-10-14T11:21:32 WEST" name="Test" finished-at="2024-10-14T11:21:44 WEST" duration-ms="11850">
+    <test started-at="2024-10-17T03:34:04 WEST" name="ChromeTest" finished-at="2024-10-17T03:34:37 WEST" duration-ms="33125">
       <class name="runner.CucumberTestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.CucumberTestRunner@574b560f]" started-at="2024-10-14T11:21:32 WEST" name="setUpClass" finished-at="2024-10-14T11:21:32 WEST" duration-ms="248" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.CucumberTestRunner@f316aeb]" started-at="2024-10-17T03:34:04 WEST" name="setUpClass" finished-at="2024-10-17T03:34:04 WEST" duration-ms="259" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@5477a1ca]]>
+                <![CDATA[org.testng.TestRunner@a43ce46]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberTestRunner@574b560f]" started-at="2024-10-14T11:21:32 WEST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-10-14T11:21:44 WEST" duration-ms="11567" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.CucumberTestRunner@f316aeb]" started-at="2024-10-17T03:34:04 WEST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-10-17T03:34:37 WEST" duration-ms="32831" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Validate the negative path of enquiring the highest price at Mercedes-Benz"]]>
+                <![CDATA["Filter cars and submit invalid contact details"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Validate the negative path of enquiring the highest price at Mercedes-Benz"]]>
+                <![CDATA["Mercedes-Benz Shop interaction"]]>
               </value>
             </param>
           </params>
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for utils.WaitHelper$$Lambda/0x00000220e045ce60@78d8bcb4 (tried for 10 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for utils.WaitHelper$$Lambda/0x00000220e045ce60@78d8bcb4 (tried for 10 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:229)
+at utils.WaitHelper.waitForPageLoad(WaitHelper.java:36)
+at pages.base.BasePage.findNestedShadowDom(BasePage.java:47)
+at pages.popups.PrivacyPolicyPopup.AcceptPrivacyPolicyPopup(PrivacyPolicyPopup.java:19)
+at pages.VehicleSearchPage.clickAcceptPrivacyPolicy(VehicleSearchPage.java:51)
+at steps.TC1_EnquirePricesSteps.applyFilters(TC1_EnquirePricesSteps.java:65)
+at ✽.I apply the following filters:(file:///C:/Users/diogo/IdeaProjects/MercedesChallenge/src/test/resources/features/TC1_EnquirePrices.feature:10)
+Caused by: org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=129.0.6668.103)
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [94f2c1342f91020cff138f7e9cb2d03d, executeScript {script=return document.readyState, args=[]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 129.0.6668.103, chrome: {chromedriverVersion: 129.0.6668.100 (cf58cba358d..., userDataDir: C:\Users\diogo\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61071}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61071/devtoo..., se:cdpVersion: 129.0.6668.103, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 94f2c1342f91020cff138f7e9cb2d03d
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:523)
+at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:468)
+at utils.WaitHelper.lambda$waitForPageLoad$0(WaitHelper.java:36)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:204)
+at utils.WaitHelper.waitForPageLoad(WaitHelper.java:36)
+at pages.base.BasePage.findNestedShadowDom(BasePage.java:47)
+at pages.popups.PrivacyPolicyPopup.AcceptPrivacyPolicyPopup(PrivacyPolicyPopup.java:19)
+at pages.VehicleSearchPage.clickAcceptPrivacyPolicy(VehicleSearchPage.java:51)
+at steps.TC1_EnquirePricesSteps.applyFilters(TC1_EnquirePricesSteps.java:65)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
+at io.cucumber.java.Invoker.invoke(Invoker.java:24)
+at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
+at io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)
+at io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)
+at io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)
+at io.cucumber.core.runner.ExecutionMode$1.execute(ExecutionMode.java:10)
+at io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)
+at io.cucumber.core.runner.TestStep.run(TestStep.java:56)
+at io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)
+at io.cucumber.core.runner.TestCase.run(TestCase.java:84)
+at io.cucumber.core.runner.Runner.runPickle(Runner.java:75)
+at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:132)
+at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)
+at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)
+at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1575)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.CucumberTestRunner@574b560f]" started-at="2024-10-14T11:21:44 WEST" name="tearDownClass" finished-at="2024-10-14T11:21:44 WEST" duration-ms="16" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.CucumberTestRunner@f316aeb]" started-at="2024-10-17T03:34:37 WEST" name="tearDownClass" finished-at="2024-10-17T03:34:37 WEST" duration-ms="11" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- runner.CucumberTestRunner -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    </test> <!-- ChromeTest -->
+  </suite> <!-- ParallelTests -->
 </testng-results>

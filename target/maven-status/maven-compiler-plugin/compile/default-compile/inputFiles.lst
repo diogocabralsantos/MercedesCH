@@ -1,5 +1,11 @@
 C:\Users\diogo\IdeaProjects\MercedesChallenge\src\main\java\pages\base\BasePage.java
 C:\Users\diogo\IdeaProjects\MercedesChallenge\src\main\java\pages\popups\PrivacyPolicyPopup.java
+C:\Users\diogo\IdeaProjects\MercedesChallenge\src\main\java\pages\PreOwnedCarSearchResultsPage.java
+C:\Users\diogo\IdeaProjects\MercedesChallenge\src\main\java\pages\VehicleDetailsPage.java
 C:\Users\diogo\IdeaProjects\MercedesChallenge\src\main\java\pages\VehicleSearchPage.java
+C:\Users\diogo\IdeaProjects\MercedesChallenge\src\main\java\utils\ConfigReader.java
+C:\Users\diogo\IdeaProjects\MercedesChallenge\src\main\java\utils\DataTableHelper.java
 C:\Users\diogo\IdeaProjects\MercedesChallenge\src\main\java\utils\DriverManager.java
+C:\Users\diogo\IdeaProjects\MercedesChallenge\src\main\java\utils\IOFileHelper.java
 C:\Users\diogo\IdeaProjects\MercedesChallenge\src\main\java\utils\LogHelper.java
+C:\Users\diogo\IdeaProjects\MercedesChallenge\src\main\java\utils\WaitHelper.java
